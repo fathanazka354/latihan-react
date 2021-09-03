@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "title": "json",
+      "body": "typicode"
+    },
+    {
+      "id": 5,
+      "title": "json",
+      "body": "typicode"
+    },
+    {
+      "id": 6,
+      "title": "json",
+      "body": "typicode"
+    },
+    {
+      "id": 8,
+      "title": "json",
+      "body": "typicode"
+    },
+    {
+      "id": 1630638780413,
+      "title": "Ubud, Bali",
+      "body": "asyo"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
