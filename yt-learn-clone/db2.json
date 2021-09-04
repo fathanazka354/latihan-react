@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1630768392938,
+      "title": "Kelompok1_MyTourNusa 1222",
+      "body": "qwerty"
+    },
+    {
+      "id": 1630769748614,
+      "title": "Kelompok1_MyTourNusa 2",
+      "body": "qwerty"
+    },
+    {
+      "id": 1630770161493,
+      "title": "Ubud, Bali",
+      "body": "bali dong"
+    },
+    {
+      "id": 1630770263459,
+      "title": "YIPIE BERHASIL CRUD",
+      "body": "YEEE BERKAT ILHAM ALLH"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

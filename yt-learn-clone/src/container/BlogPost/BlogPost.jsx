@@ -11,6 +11,7 @@ class BlogPost extends Component {
       title: "",
       body: "",
     },
+    isUpdate: false,
   };
 
   getAPIURL = () => {
@@ -28,11 +29,39 @@ class BlogPost extends Component {
       (res) => {
         this.getAPIURL();
         console.log(res);
+        // memanggil kembali setstate ini dikarenakan untuk mengosongkan input setelah di insert
+        this.setState({
+          blogPostNew: {
+            id: 1,
+            title: "",
+            body: "",
+          },
+        });
       },
       (err) => {
         console.log("error :", err);
       }
     );
+  };
+
+  putDataAPI = (id) => {
+    axios
+      .put(
+        "http://localhost:3004/posts/" + this.state.blogPostNew.id,
+        this.state.blogPostNew
+      )
+      .then((res) => {
+        console.log(res);
+        this.getAPIURL();
+        this.setState({
+          isUpdate: false,
+          blogPostNew: {
+            id: 1,
+            title: "",
+            body: "",
+          },
+        });
+      });
   };
 
   componentDidMount() {
@@ -58,15 +87,29 @@ class BlogPost extends Component {
     let AmbilAllObj = { ...this.state.blogPostNew };
     AmbilAllObj[e.target.name] = e.target.value;
     let timestamp = new Date().getTime();
-    AmbilAllObj["id"] = timestamp;
+    if (!this.state.isUpdate) {
+      AmbilAllObj["id"] = timestamp;
+    }
     this.setState({
       blogPostNew: AmbilAllObj,
     });
   };
 
   handleSubmit = () => {
-    this.postDataAPI();
+    if (this.state.isUpdate) {
+      this.putDataAPI();
+    } else {
+      this.postDataAPI();
+    }
   };
+
+  handleUpdate = (data) => {
+    this.setState({
+      blogPostNew: data,
+      isUpdate: true,
+    });
+  };
+
   render() {
     return (
       <Fragment>
@@ -78,6 +121,7 @@ class BlogPost extends Component {
             id="title"
             name="title"
             placeholder="add title"
+            value={this.state.blogPostNew.title}
             onChange={this.handleChange}
           />
           <label htmlFor="blogcontent">Blog Content</label>
@@ -87,12 +131,20 @@ class BlogPost extends Component {
             cols="30"
             rows="10"
             placeholder="add body content"
+            value={this.state.blogPostNew.body}
             onChange={this.handleChange}
           ></textarea>
           <button onClick={this.handleSubmit}>Add Blog</button>
         </div>
         {this.state.post.map((pos) => {
-          return <Post key={pos.id} data={pos} onRemove={this.handleRemove} />;
+          return (
+            <Post
+              key={pos.id}
+              data={pos}
+              onRemove={this.handleRemove}
+              onUpdate={this.handleUpdate}
+            />
+          );
         })}
       </Fragment>
     );

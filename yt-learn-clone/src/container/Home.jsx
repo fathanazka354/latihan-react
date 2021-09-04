@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import Product from "../component/product/Product";
 import LifeCycle from "./LifeCycleComp/LifeCycle";
 import BlogPost from "./BlogPost/BlogPost";
+import BlogBerita from "./BlogBerita/BlogBerita";
 
 class Home extends Component {
   state = {
@@ -60,7 +61,8 @@ class Home extends Component {
         <Product /> */}
         {/* {this.state.showComponents ? <LifeCycle /> : <p>Maaf Kosong</p>} */}
         {/* {this.state.showParagraph ? null : <p>Maaf sudah pull</p>} */}
-        <BlogPost />
+        {/* <BlogPost /> */}
+        <BlogBerita />
       </div>
     );
   }

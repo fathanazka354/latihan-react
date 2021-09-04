@@ -1,0 +1,62 @@
+.container {
+    width: 80%;
+    margin: 30px auto;
+
+}
+.card {
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 2px 2px black;
+    padding: 10px;
+}
+.card .img-thumb{
+    float: left;
+    background-size: cover;
+}
+.card .img-thumb img {
+    background-size: cover;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+h1 {
+    text-align: center;
+}
+form {
+    margin: auto;
+    width: 70%;
+}
+form input, textarea{
+    width: 100%;
+}
+form input {
+    padding: 5px;
+}
+form #title , form #content
+,form label{
+    display: block;
+}
+form label {
+    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+form button {
+    padding: 10px 20px;
+}
+form button.remove {
+    background-color: brown;
+    margin-left: 10px;
+}
+form button.submit {
+    background-color: rgb(42, 161, 165);
+    margin-left: 10px;
+}
+form button.update {
+    background-color: cadetblue;
+}
